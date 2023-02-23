@@ -114,10 +114,11 @@
         let sumOddNum = 0
         let qntOddNum = 0
 
-        for (let j = minNum; j <= maxNum; j++) {
-            if (j % 2 > 0 && qntOddNum < 5) {
+        for (let j = minNum; j <= maxNum, qntOddNum < 5; j++) {
+            if (j % 2 > 0) {
                 sumOddNum += j
                 qntOddNum++
+                console.log(j) // для проверки
             }
         }
         result1.innerHTML = `Сумма всех парных чисел заданного интервала= <span>${sumOddNum}</span>`

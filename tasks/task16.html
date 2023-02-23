@@ -113,17 +113,19 @@
     <script>
         const N = parseInt(prompt('Введите кол-во недель:'))
         let profitDay = 0,
-            profitWeek = 0
+            profitWeek = 0,
+            totalProfit = 0
 
         for (let i = 0; i < N; i++) {
             for (let j = 0; j < 7; j++) {
-                profitDay += parseFloat(prompt(`Введите прибыл за день недели ${i + 1} = ${j + 1}`))
+                profitDay = parseFloat(prompt(`Введите прибыл за день недели ${i + 1} = ${j + 1}`))
                 console.log(profitDay) // для проверки
+                totalProfit += profitDay
             }
-            profitWeek = profitDay / N
+            profitWeek = totalProfit / N
             console.log(profitWeek) // для проверки
         }
-        result1.innerHTML = `<p>Всего прибыль за <span>${N}</span> недель = <span>${profitDay.toFixed(2)}</span></p><p>Прибыль за неделю = <span>${profitWeek}</span></p>`
+        result1.innerHTML = `<p>Всего прибыль за <span>${N}</span> недель = <span>${totalProfit.toFixed(2)}</span></p><p>Прибыль за неделю = <span>${profitWeek}</span></p>`
     </script>
 </body>
 
