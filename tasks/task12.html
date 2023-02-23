@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>TaskDop nr. 12</h1>
+    <div class="text">Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається
+        як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100
+        грн, три других –
+        200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за
+        номером).</div>
+    <div class="result">Result</div>
+    <div id="result1"></div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato:regular,700');
+
+        body {
+            font-family: 'Lato';
+            background-color: #00a1a3;
+            background-image: linear-gradient(to right, #005083, #23704e);
+        }
+
+        h1 {
+            display: block;
+            max-width: 170px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 4px #000;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(251, 255, 26);
+            font-weight: 700;
+        }
+
+        img {
+            padding-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text {
+            padding-top: 20px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .result {
+            padding-top: 50px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            font-size: 32px;
+
+        }
+
+        .result::after {
+            content: " ";
+            background: url('img/left-arrow.png') no-repeat;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 80px;
+            left: 48.7%;
+            transform: rotate(-90deg);
+            z-index: 1;
+            color: #fff;
+            object-fit: cover;
+            animation-name: down-arrow;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes down-arrow {
+            0% {
+                top: 80px;
+            }
+
+            100% {
+                top: 100px;
+            }
+        }
+
+        #result1 {
+            padding-top: 80px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(251, 255, 26);
+            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        span {
+            color: rgb(255, 82, 82);
+            font-size: 40px;
+        }
+
+        .result-image {
+            display: flex;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        img {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+    </style>
+    <script>
+        alert('Начните игру нажав ОК')
+
+        const minNumImage = 1, maxNumImage = 4
+        let randomImage,
+            resultImage = '',
+            message
+
+        document.write('<div class="result-image">')
+        for (let i = 0; i < 3; i++) {
+            randomImage = minNumImage + Math.floor(Math.random() * (maxNumImage - minNumImage + 1))
+
+            console.log(randomImage) // для проверки
+            switch (randomImage) {
+                case 1: document.write(`<img src="../tasks/img/pear_1.jpg">`)
+                    resultImage += '1'
+                    break;
+                case 2: document.write(`<img src="../tasks/img/strawberry_2.jpg">`)
+                    resultImage += '2'
+                    break;
+                case 3: document.write(`<img src="../tasks/img/apple_3.jpg">`)
+                    resultImage += '3'
+                    break;
+                case 4: document.write(`<img src="../tasks/img/lemon_4.jpg">`)
+                    resultImage += '4'
+                    break;
+            }
+            if (resultImage === '111')
+                message = 'Вы выиграли 100 гривен!'
+            else if (resultImage === '222')
+                message = 'Вы выиграли 200 гривен!'
+            else if (resultImage === '333')
+                message = 'Вы выиграли 500 гривен!'
+            else if (resultImage === '444')
+                message = 'Вы выиграли 1000 гривен!'
+            else
+                message = 'Увы :( Не повезло'
+
+        }
+        document.write('</div">')
+
+
+        result1.innerHTML = `${message}`
+
+    </script>
+</body>
+
+</html>

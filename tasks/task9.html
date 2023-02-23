@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>TaskDop nr. 9</h1>
+    <div class="text">Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати
+        confirm).</div>
+    <div class="result">Result</div>
+    <div id="result1"></div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato:regular,700');
+
+        body {
+            font-family: 'Lato';
+            background-color: #00a1a3;
+            background-image: linear-gradient(to right, #005083, #23704e);
+        }
+
+        h1 {
+            display: block;
+            max-width: 170px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 4px #000;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(251, 255, 26);
+            font-weight: 700;
+        }
+
+        img {
+            padding-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text {
+            padding-top: 20px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .result {
+            padding-top: 50px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            font-size: 32px;
+
+        }
+
+        .result::after {
+            content: " ";
+            background: url('img/left-arrow.png') no-repeat;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 80px;
+            left: 48.7%;
+            transform: rotate(-90deg);
+            z-index: 1;
+            color: #fff;
+            object-fit: cover;
+            animation-name: down-arrow;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes down-arrow {
+            0% {
+                top: 80px;
+            }
+
+            100% {
+                top: 100px;
+            }
+        }
+
+        #result1 {
+            padding-top: 80px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(251, 255, 26);
+            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        span {
+            color: rgb(255, 82, 82);
+        }
+    </style>
+    <script>
+        const minNum = 1, maxNum = 100
+        alert('Загадайте любое число от 1 до 100')
+        let randomNumber
+        for (let i = 0; ; i++) {
+            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+            let guessNumber = confirm(`Попытка № ${i + 1}: Загаданное число ${randomNumber} ?`)
+            if (guessNumber === true) {
+                alert('Браво, угадал!')
+                break
+            }
+            else
+                alert('Увы :( Пробуем дальше')
+        }
+        result1.innerHTML = `Загаданное число: ${randomNumber}`
+
+    </script>
+</body>
+
+</html>
