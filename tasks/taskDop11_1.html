@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 11.1</h1>
+    <div class="text">Комп’ютер загадує два випадкових числа від 1 до 10. Вгадати обидва числа шляхом введеня можливих
+        варіантів. В кінці
+        вивести кількість спроб користувача.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -95,16 +96,19 @@
             text-transform: uppercase;
             font-size: 32px;
             font-weight: 700;
+            margin-bottom: 20px;
         }
 
         span {
             color: rgb(255, 82, 82);
         }
 
-        ul {
-            max-width: 50px;
+        ol {
+            max-width: 250px;
             margin: 0 auto;
             text-shadow: 2px 2px 4px #000;
+            box-shadow: 2px 2px 4px #000;
+            padding: 10px;
 
         }
 
@@ -114,19 +118,44 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 5px;
+            list-style: none;
+        }
+
+        p {
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 700;
+            color: rgb(251, 255, 26);
+            text-transform: uppercase;
+            font-size: 32px;
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        const startInterval = 1,
+            endInterval = 10
+
+        const randomNumber1 = startInterval + Math.floor(Math.random() * endInterval)
+        const randomNumber2 = startInterval + Math.floor(Math.random() * endInterval)
+
+        console.log(randomNumber1)
+        console.log(randomNumber2)
+
+        exit: for (let i = 0; i < Infinity; i++) {
+            let userNumber1 = parseInt(prompt('Угадайте целое число №1 от 1 до 10:'))
+            if (userNumber1 === randomNumber1) {
+                alert(`Вы угадали число №1 за ${i + 1} попыток`)
+                for (let j = 0; j < Infinity; j++) {
+                    let userNumber2 = parseInt(prompt('Угадайте целое число №2 от 1 до 10:'))
+                    if (userNumber2 === randomNumber2) {
+                        alert(`Вы угадали число №2 за ${j + 1} попыток`)
+                        break exit
+                    } else
+                        alert('Пробуйте угадать ещё раз')
+                }
+            } else
+                alert('Пробуйте угадать ещё раз')
+        }
+        result1.innerHTML = `Угаданное число №1 = <span>${randomNumber1}</span> число №2 = <span>${randomNumber2}</span>`
     </script>
 </body>
 

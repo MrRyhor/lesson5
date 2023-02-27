@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 3</h1>
+    <div class="text">З клавіатури вводиться початкове знчення суми. Поки сума є меншою за 100 додавати до неї числа,
+        які вводяться з
+        клавіатури.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -117,16 +118,23 @@
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        let startSumm = parseFloat(prompt('Введите начальную сумму < 100:'))
+        const endSumm = 100
+        let balanceEndStartSum,
+            totalSum = 0
+
+        for (let i = 0; i < Infinity; i++) {
+            totalSum += startSumm
+            if (totalSum < endSumm) {
+                balanceEndStartSum = endSumm - totalSum
+                alert(`Необходимо добавить ${balanceEndStartSum}`)
+                startSumm = parseFloat(prompt('Введите вносимую сумму:'))
+            } else {
+                alert(`Вы внесли неоходимую сумму ${totalSum}`)
+                break
+            }
+        }
+        result1.innerHTML = `Внесённая сумма = ${totalSum}`
     </script>
 </body>
 

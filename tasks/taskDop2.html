@@ -9,9 +9,8 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 2</h1>
+    <div class="text">З клавіатури вводитяться числа поки не буде введено 0. Знайти добуток чисел.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -117,16 +116,19 @@
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        let multipNumbers = 1
+
+        for (let i = 0; i < Infinity; i++) {
+            let enterNumber = parseInt(prompt('Введите любое целое число:', '0'))
+            if (enterNumber === 0) {
+                alert('вы ввели 0 ввод чисел остановлен!')
+                break
+            }
+            multipNumbers *= enterNumber
+        }
+
+        result1.innerHTML = `MultipNumber = ${multipNumbers}`
+
     </script>
 </body>
 

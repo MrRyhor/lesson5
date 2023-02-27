@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>TaskDop nr. 16</h1>
+    <div class="text">Танчики. На полі з 10 клітинок розміщують танк. За один крок танк може переміщуватися на відстань
+        від 0 до 1 у
+        будь-якому напрямку (в межах поля). При влучанні броня танка пошкоджується на 30 балів (всього 100). Гра
+        продовжується
+        поки або не закінчаться снаряди (кількість вводиться з клавіатури) або не буде влучання. Спробуйте відоразити
+        гру
+        графічно.</div>
+    <div class="result">Result</div>
+    <div id="result1"></div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato:regular,700');
+
+        body {
+            font-family: 'Lato';
+            background-color: #00a1a3;
+            background-image: linear-gradient(to right, #005083, #23704e);
+        }
+
+        h1 {
+            display: block;
+            max-width: 170px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 4px #000;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(251, 255, 26);
+            font-weight: 700;
+        }
+
+        img {
+            padding-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .text {
+            padding-top: 20px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            max-width: 700px;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .result {
+            padding-top: 50px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            font-size: 32px;
+        }
+
+        .result::after {
+            content: " ";
+            background: url('img/left-arrow.png') no-repeat;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 80px;
+            left: 48.8%;
+            transform: rotate(-90deg);
+            z-index: 1;
+            color: #fff;
+            object-fit: cover;
+            animation-name: down-arrow;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes down-arrow {
+            0% {
+                top: 80px;
+            }
+
+            100% {
+                top: 100px;
+            }
+        }
+
+        #result1 {
+            padding-top: 70px;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(251, 255, 26);
+            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        table {
+            text-align: center;
+            color: rgb(251, 255, 26);
+            text-shadow: 2px 2px 4px #000;
+            border: 2px solid #fff;
+            margin: 0 auto;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        span {
+            color: rgb(255, 82, 82);
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p {
+            color: rgb(251, 255, 26);
+        }
+    </style>
+    <script>
+        const startInterval = 1,
+            endInterval = 10
+        let points = 0, i
+
+        let randomTankPosition = startInterval + Math.floor(Math.random() * (endInterval - startInterval + 1))
+        console.log(randomTankPosition)
+        const shootCount = parseInt(prompt('Введите количество выстрелов:'))
+
+        for (i = 1; i <= shootCount; i++) {
+            let userShoot = parseInt(prompt('Введите номер клетки в которой может находится танк:'))
+            if (userShoot === randomTankPosition) {
+                points += 30
+                alert(`Папал точно в цель! Кол-во баллов = ${points}! Танк был в клетке: ${randomTankPosition}`)
+                if (points >= 100)
+                    break
+                randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
+                console.log(randomTankPosition)
+            } else {
+                alert('Мазила :( Пробуй ещё')
+                randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
+                console.log(randomTankPosition)
+            }
+        }
+
+        result1.innerHTML = `Танк был в клетке: <span>${randomTankPosition}</span> Количество баллов = ${points}<br> Кол-во попыток = <span>${i}</span>`
+        document.write('<table border=1>')
+        for (let j = 0; j <= 11; j++) {
+            if (j === randomTankPosition)
+                document.write(`<td><span>${randomTankPosition}</span ></td >`)
+            else
+                document.write(`<td><p>X</p></td >`)
+        }
+        document.write('</table>')
+    </script>
+</body>
+
+</html>

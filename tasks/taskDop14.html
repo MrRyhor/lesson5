@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 14</h1>
+    <div class="text">Морський бій. Комп’ютер випадковим чином розміщує одиночний корамель на полі 5*5. З клавіатури
+        поступово вводяться
+        координати пострілу поки корабель не буде потоплено. Спробуйте відоразити гру графічно.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -33,6 +34,12 @@
             text-transform: uppercase;
             color: rgb(251, 255, 26);
             font-weight: 700;
+        }
+
+        img {
+            padding-top: 20px;
+            display: block;
+            margin: 0 auto;
         }
 
         .text {
@@ -63,7 +70,7 @@
             height: 50px;
             position: absolute;
             top: 80px;
-            left: 48.7%;
+            left: 48.8%;
             transform: rotate(-90deg);
             z-index: 1;
             color: #fff;
@@ -95,38 +102,57 @@
             text-transform: uppercase;
             font-size: 32px;
             font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        table {
+            text-align: center;
+            color: rgb(251, 255, 26);
+            text-shadow: 2px 2px 4px #000;
+            border: 2px solid #fff;
+            margin: 0 auto;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        td {
+            padding: 5px;
         }
 
         span {
             color: rgb(255, 82, 82);
-        }
-
-        ul {
-            max-width: 50px;
-            margin: 0 auto;
-            text-shadow: 2px 2px 4px #000;
-
-        }
-
-        li {
-            color: rgb(251, 255, 26);
-            text-shadow: 2px 2px 4px #000;
-            font-size: 20px;
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 5px;
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        const starAxisX = 1,
+            endAxisX = 5,
+            startAxisY = 1,
+            endAxisY = 5
+        let randomAxisX = starAxisX + Math.floor(Math.random() * endAxisX)
+        let randomAxisY = startAxisY + Math.floor(Math.random() * endAxisY)
+        console.log(randomAxisX)
+        console.log(randomAxisY)
+        //let counterY = 1            
+
+        for (let i = 0; i < Infinity; i++) {
+            userShootX = parseInt(prompt('Введите координату по оси Х от 1 до 5:'))
+            userShootY = parseInt(prompt('Введите координату по оси Y от 1 до 5:'))
+            if (userShootX === randomAxisX && userShootY === randomAxisY) {
+                alert(`Попал точно в цель! Корабль был в ${randomAxisX} по оси Х и ${randomAxisY} по оси Y`)
+                break
+            } else
+                alert('Мимо! Пробуем ещё')
+        }
+        result1.innerHTML = `Корабль был в точке X = <span>${randomAxisX}</span> точка Y = <span>${randomAxisY}</span>`
+        document.write('<table border=1>')
+        document.write(`<td><span>X</span></td>`)
+        document.write('</table>')
+
+
     </script>
 </body>
 

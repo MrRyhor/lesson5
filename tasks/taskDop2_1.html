@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 2_1</h1>
+    <div class="text">З клавіатури поступово вводяться символи поки не буде введено символ «а». Вивести рядок символів у
+        зворотному порядку.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -117,16 +117,29 @@
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+
+        let resultString = '',
+            reverseString = ''
+
+        for (let i = 0; i < Infinity; i++) {
+            let enterSymbol = prompt('Введите любой символ:')
+            if (enterSymbol === 'a') {
+                alert('вы ввели символ "a" ввод символов остановлен!')
+                break
+            }
+            resultString += enterSymbol
+        }
+        alert(`Result String = ${resultString}`)
+        alert('Выведем эту строку в обратном порядке?')
+
+        for (let j = resultString.length - 1; j >= 0; j--) {
+
+            reverseString += resultString[j]
+            console.log(reverseString)
+
+        }
+        result1.innerHTML = `Reverse String = ${reverseString}`
+
     </script>
 </body>
 

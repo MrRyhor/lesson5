@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 13</h1>
+    <div class="text">З клавіатури вводяться поступово числа. Знайти два найменші числа. Ввід здійснюється до тих пір,
+        поки різниця між такими
+        числами є більшою за 5.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -33,6 +34,12 @@
             text-transform: uppercase;
             color: rgb(251, 255, 26);
             font-weight: 700;
+        }
+
+        img {
+            padding-top: 20px;
+            display: block;
+            margin: 0 auto;
         }
 
         .text {
@@ -100,33 +107,35 @@
         span {
             color: rgb(255, 82, 82);
         }
-
-        ul {
-            max-width: 50px;
-            margin: 0 auto;
-            text-shadow: 2px 2px 4px #000;
-
-        }
-
-        li {
-            color: rgb(251, 255, 26);
-            text-shadow: 2px 2px 4px #000;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        const differenceBetweenMinNum = 5
+        let min1 = parseInt(prompt('Введите число Min 1:'))
+        let min2 = parseInt(prompt('Введите число Min 2:'))
+        for (let i = 0; i < Infinity; i++) {
+            if (Math.abs(min1 - min2) > differenceBetweenMinNum) {
+                let userNum1 = parseInt(prompt('Введите целое число №1'))
+                let userNum2 = parseInt(prompt('Введите целое число №2'))
+                let userNum3 = parseInt(prompt('Введите целое число №3'))
+                let userNum4 = parseInt(prompt('Введите целое число №4'))
+
+                min1 = userNum1
+                if (userNum2 < min1) min1 = userNum2
+                if (userNum3 < min1) min1 = userNum3
+                if (userNum4 < min1) min1 = userNum4
+                console.log(min1)
+                if (userNum1 < min1) min2 = userNum1
+                if (userNum2 < min2 && userNum2 > min1) min2 = userNum2
+                if (userNum3 < min2 && userNum3 > min1) min2 = userNum3
+                if (userNum4 < min2 && userNum4 > min1) min2 = userNum4
+                console.log(min2)
+            } else
+                break
+        }
+        result1.innerHTML = `Min 1 = <span>${min1}</span> and Min 2 = <span>${min2}</span>`
+
+
+
     </script>
 </body>
 

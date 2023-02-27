@@ -9,9 +9,10 @@
 </head>
 
 <body>
-    <h1>Task nr. 1</h1>
-    <div class="text">Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість
-        випадкових чисел вводиться користувачем.</div>
+    <h1>TaskDop nr. 12</h1>
+    <div class="text">З клавіатури вводяться поступово числа. Знайти два найбільші числа. Ввід здійснюється до тих пір,
+        поки різниця між
+        такими числами є більшою за 5.</div>
     <div class="result">Result</div>
     <div id="result1"></div>
 
@@ -95,16 +96,19 @@
             text-transform: uppercase;
             font-size: 32px;
             font-weight: 700;
+            margin-bottom: 20px;
         }
 
         span {
             color: rgb(255, 82, 82);
         }
 
-        ul {
-            max-width: 50px;
+        ol {
+            max-width: 250px;
             margin: 0 auto;
             text-shadow: 2px 2px 4px #000;
+            box-shadow: 2px 2px 4px #000;
+            padding: 10px;
 
         }
 
@@ -114,19 +118,43 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 5px;
+            list-style: none;
+        }
+
+        p {
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 700;
+            color: rgb(251, 255, 26);
+            text-transform: uppercase;
+            font-size: 32px;
         }
     </style>
     <script>
-        const minNum = 1
-        const maxNum = 100
-        let num = 0
-        let randomNumber
-        let qntOfNum = parseFloat(prompt('Введите любое кол-во чисел:'))
-        do {
-            randomNumber = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
-            document.write(`<ul><li>${randomNumber}</li></ul>`)
-            num++
-        } while (num < qntOfNum);
+        const differenceBetweenMaxNum = 5
+        let max1 = parseInt(prompt('Введите число Max 1:'))
+        let max2 = parseInt(prompt('Введите число Max 2:'))
+        for (let i = 0; i < Infinity; i++) {
+            if (Math.abs(max1 - max2) > differenceBetweenMaxNum) {
+                let userNum1 = parseInt(prompt('Введите целое число №1'))
+                let userNum2 = parseInt(prompt('Введите целое число №2'))
+                let userNum3 = parseInt(prompt('Введите целое число №3'))
+                let userNum4 = parseInt(prompt('Введите целое число №4'))
+
+                max1 = userNum1
+                if (userNum2 > max1) max1 = userNum2
+                if (userNum3 > max1) max1 = userNum3
+                if (userNum4 > max1) max1 = userNum4
+                console.log(max1)
+                if (userNum1 < max1) max2 = userNum1
+                if (userNum2 > max2 && userNum2 < max1) max2 = userNum2
+                if (userNum3 > max2 && userNum3 < max1) max2 = userNum3
+                if (userNum4 > max2 && userNum4 < max1) max2 = userNum4
+                console.log(max2)
+            } else
+                break
+        }
+        result1.innerHTML = `Max 1 = <span>${max1}</span> and Max 2 = <span>${max2}</span>`
     </script>
 </body>
 
