@@ -149,18 +149,18 @@
             if (userShoot === randomTankPosition) {
                 points += 30
                 alert(`Папал точно в цель! Кол-во баллов = ${points}! Танк был в клетке: ${randomTankPosition}`)
+                if (i === shootCount)
+                    break
                 if (points >= 100)
                     break
                 randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
                 console.log(randomTankPosition)
             } else {
                 alert('Мазила :( Пробуй ещё')
-                randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
-                console.log(randomTankPosition)
             }
         }
 
-        result1.innerHTML = `Танк был в клетке: <span>${randomTankPosition}</span> Количество баллов = ${points}<br> Кол-во попыток = <span>${i}</span>`
+        result1.innerHTML = `Танк был в клетке: <span>${randomTankPosition}</span> Количество баллов = ${points}`
         document.write('<table border=1>')
         for (let j = 0; j <= 11; j++) {
             if (j === randomTankPosition)

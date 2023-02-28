@@ -146,14 +146,15 @@
             if (userShoot === randomTankPosition) {
                 myPoints += 30
                 alert(`Папал точно в цель! Кол-во баллов = ${myPoints}! Танк был в клетке: ${randomTankPosition}`)
+                if (i === myShootCount)
+                    break
                 if (myPoints >= 100)
                     break
                 randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
                 console.log(randomTankPosition) // проверка
             } else {
                 alert('Мазила :( Пробуй ещё')
-                randomTankPosition = randomTankPosition + Math.round((Math.random() - 0.5) * 2)
-                console.log(randomTankPosition) // проверка
+
             }
         }
         alert('Теперь очередь компа')
@@ -169,14 +170,14 @@
             if (compShoot === randomMyTankPosition) {
                 compPoints += 30
                 alert(`Папал точно в цель! Кол-во баллов = ${compPoints}! Танк был в клетке: ${randomMyTankPosition}`)
+                if (k === compShootCounter)
+                    break
                 if (compPoints >= 100)
                     break
                 randomMyTankPosition = randomMyTankPosition + Math.round((Math.random() - 0.5) * 2)
                 console.log(randomMyTankPosition) // проверка
             } else {
                 alert('Пронесло, он тоже мазила')
-                randomMyTankPosition = randomMyTankPosition + Math.round((Math.random() - 0.5) * 2)
-                console.log(randomMyTankPosition) // проверка
             }
         }
 

@@ -139,12 +139,13 @@
 
         console.log(randomNumber1)
         console.log(randomNumber2)
+        let i, j
 
-        exit: for (let i = 0; i < Infinity; i++) {
+        exit: for (i = 0; i < Infinity; i++) {
             let userNumber1 = parseInt(prompt('Угадайте целое число №1 от 1 до 10:'))
             if (userNumber1 === randomNumber1) {
                 alert(`Вы угадали число №1 за ${i + 1} попыток`)
-                for (let j = 0; j < Infinity; j++) {
+                for (j = 0; j < Infinity; j++) {
                     let userNumber2 = parseInt(prompt('Угадайте целое число №2 от 1 до 10:'))
                     if (userNumber2 === randomNumber2) {
                         alert(`Вы угадали число №2 за ${j + 1} попыток`)
@@ -155,7 +156,7 @@
             } else
                 alert('Пробуйте угадать ещё раз')
         }
-        result1.innerHTML = `Угаданное число №1 = <span>${randomNumber1}</span> число №2 = <span>${randomNumber2}</span>`
+        result1.innerHTML = `Угаданное за ${i + 1} попыток число №1 = <span>${randomNumber1}</span> число №2 за ${j + 1} попыток = <span>${randomNumber2}</span>`
     </script>
 </body>
 
